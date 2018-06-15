@@ -8,9 +8,8 @@ class SignUpForm extends Component {
         this.state = {
             email: '',
             password: '',
-            firstName: '',
-            lastName: '',
-            hasAgreed: false
+            name: '',
+            lastname: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -19,8 +18,8 @@ class SignUpForm extends Component {
 
     handleChange(e) {
         let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.first_name;
+        let value = target.value;
+        let name = target.name;
 
         this.setState({
           [name]: value
@@ -39,12 +38,12 @@ class SignUpForm extends Component {
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="first_name">First Name</label>
-                <input type="text" id="first_name" className="FormField__Input" placeholder="Enter your first name" name="first_name" value={this.state.firstName} onChange={this.handleChange} />
+                <label className="FormField__Label" htmlFor="name">First Name</label>
+                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.name} onChange={this.handleChange} />
               </div>
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="last_name">First Name</label>
-                <input type="text" id="last_name" className="FormField__Input" placeholder="Enter your last name" name="last_name" value={this.state.lastName} onChange={this.handleChange} />
+                <label className="FormField__Label" htmlFor="lastname">Last Name</label>
+                <input type="text" id="lastname" className="FormField__Input" placeholder="Enter your last name" name="lastname" value={this.state.lastname} onChange={this.handleChange} />
               </div>
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="password">Password</label>
@@ -56,12 +55,6 @@ class SignUpForm extends Component {
               </div>
 
               <div className="FormField">
-                <label className="FormField__CheckboxLabel">
-                    <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> I agree all statements in <a href="" className="FormField__TermsLink">terms of service</a>
-                </label>
-              </div>
-
-              <div className="FormField">
                   <button className="FormField__Button mr-20">Sign Up</button> <Link to="/sign-in" className="FormField__Link">I am already member</Link>
               </div>
             </form>
@@ -69,4 +62,5 @@ class SignUpForm extends Component {
         );
     }
 }
+
 export default SignUpForm;
