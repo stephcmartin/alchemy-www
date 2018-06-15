@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
+import dashboard from './components/dashboard';
 
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Router basename="/home">
@@ -25,12 +26,11 @@ class App extends Component {
               </Route>
               <Route path="/sign-in" component={SignInForm}>
               </Route>
+              <Route path="/dashboard" component={dashboard}>
+              </Route>
           </div>
-
         </div>
       </Router>
     );
   }
 }
-
-export default App;
